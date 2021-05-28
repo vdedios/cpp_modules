@@ -14,7 +14,7 @@ int main() {
     while (true) {
         std::cout << "What do you want to do? ";
         getline(std::cin, input);
-        if (input == "EXIT") {
+        if (std::cin.eof() || input == "EXIT") {
             exit(0);
         } else if (input == "ADD") {
             phoneBook.add();
