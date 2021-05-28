@@ -8,7 +8,7 @@ class Contact {
 public:
 	Contact();
 	~Contact( void );
-	void printInfo(void);
+	void printInfo(void) const;
 	std::string firstName;
 	std::string lastName;
 	std::string nickname;

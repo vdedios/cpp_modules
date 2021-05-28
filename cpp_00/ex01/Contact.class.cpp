@@ -10,7 +10,7 @@ Contact::~Contact(void) {
     return ;
 }
 
-void Contact::printInfo(void) {
+void Contact::printInfo(void) const{
 	std::cout << std::endl;
 	std::cout << "First Name: " << this->firstName << std::endl;
 	std::cout << "Last Name: " << this->lastName << std::endl;

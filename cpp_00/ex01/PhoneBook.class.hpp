@@ -11,14 +11,14 @@ class PhoneBook {
 		PhoneBook(void);
 		~PhoneBook(void);
 		void 	add();
-		void	search();
-		void	ask(std::string question, std::string *answer);
+		void	search() const;
+		void	askFor(std::string question, std::string *answer) const;
 
 	private:
 		Contact	_contacts[8];
 		int		_registeredContacts;
-		void	_displayAvailableContacts(void);
-		void 	_printParsedContactField(std::string field);
+		void	_displayAvailableContacts(void) const;
+		void 	_printParsedContactField(std::string field) const;
 };
 
 #endif

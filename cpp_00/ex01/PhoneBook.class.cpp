@@ -19,28 +19,28 @@ void PhoneBook::add(void) {
     if (i >= MAX_CONTACTS) {
         std::cout << "PhoneBook is full (max contacts is " << MAX_CONTACTS << ")." << std::endl;
     } else {
-        this->ask("First Name: ", &this->_contacts[i].firstName);
-        this->ask("Last Name: ", &this->_contacts[i].lastName);
-        this->ask("Nickname: ", &this->_contacts[i].nickname);
-        this->ask("Login: ", &this->_contacts[i].login);
-        this->ask("Email: ", &this->_contacts[i].email);
-        this->ask("Phone number: ", &this->_contacts[i].phoneNumber);
-        this->ask("Birthday date: ", &this->_contacts[i].birthdayDate);
-        this->ask("Favorite meal: ", &this->_contacts[i].favoriteMeal);
-        this->ask("Underwear: ", &this->_contacts[i].underwear);
-        this->ask("Color: ", &this->_contacts[i].color);
-        this->ask("Darkest secret: ", &this->_contacts[i].darkestSecret);
+        this->askFor("First Name: ", &this->_contacts[i].firstName);
+        this->askFor("Last Name: ", &this->_contacts[i].lastName);
+        this->askFor("Nickname: ", &this->_contacts[i].nickname);
+        this->askFor("Login: ", &this->_contacts[i].login);
+        this->askFor("Email: ", &this->_contacts[i].email);
+        this->askFor("Phone number: ", &this->_contacts[i].phoneNumber);
+        this->askFor("Birthday date: ", &this->_contacts[i].birthdayDate);
+        this->askFor("Favorite meal: ", &this->_contacts[i].favoriteMeal);
+        this->askFor("Underwear: ", &this->_contacts[i].underwear);
+        this->askFor("Color: ", &this->_contacts[i].color);
+        this->askFor("Darkest secret: ", &this->_contacts[i].darkestSecret);
         this->_registeredContacts++;
     }
 }
 
-void PhoneBook::search(void) {
+void PhoneBook::search(void) const{
     std::string             answer;
     std::string::size_type  sz = 0;
     int                     index;
 
     this->_displayAvailableContacts();
-    this->ask("Select desired contact index: ", &answer);
+    this->askFor("Select desired contact index: ", &answer);
     try {
         index = std::stoi(answer, &sz);
     } catch (...) {
@@ -54,12 +54,12 @@ void PhoneBook::search(void) {
     }
 }
 
-void PhoneBook::ask(std::string question, std::string *answer) {
+void PhoneBook::askFor(std::string question, std::string *answer) const{
     std::cout << question;
     getline(std::cin, *answer);
 }
 
-void PhoneBook::_printParsedContactField(std::string field) {
+void PhoneBook::_printParsedContactField(std::string field) const{
     if (field.length() <= FIELD_SIZE) {
         std::cout << std::setw(FIELD_SIZE) << field;
     } else {
@@ -68,7 +68,7 @@ void PhoneBook::_printParsedContactField(std::string field) {
     }
 }
 
-void PhoneBook::_displayAvailableContacts(void) {
+void PhoneBook::_displayAvailableContacts(void) const{
     int i = 0;
 
     std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
