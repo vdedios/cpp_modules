@@ -5,7 +5,10 @@ CPPFLAGS = -Wall -Werror -Wextra
 
 OBJ_DIR	= obj/
 
-SRC = main.cpp
+SRC = main.cpp \
+	  PhoneBook.class.cpp \
+	  Contact.class.cpp
+
 OBJ	= $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 
 .PHONY:		all
