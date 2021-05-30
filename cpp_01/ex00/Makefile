@@ -6,7 +6,7 @@ CPPFLAGS = -Wall -Werror -Wextra
 OBJ_DIR	= obj/
 
 SRC = main.cpp \
-	  Pony.class.cpp
+	  Pony.cpp
 
 OBJ	= $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 

@@ -5,7 +5,7 @@ CPPFLAGS = -Wall -Werror -Wextra
 
 OBJ_DIR	= obj/
 
-SRC = main.cpp
+SRC = ex01.cpp
 
 OBJ	= $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 

@@ -1,4 +1,4 @@
-#include "Pony.class.hpp"
+#include "Pony.hpp"
 
 void	ponyOnTheHeap() {
 	Pony	*heapPony = new Pony(2, 21.0, "white");
@@ -18,7 +18,7 @@ void	ponyOnTheStack() {
     std::cout << "color: " << stackPony.color << std::endl;
 }
 
-int	main() {
+int	main(void) {
 	ponyOnTheHeap();
 	ponyOnTheStack();
 }

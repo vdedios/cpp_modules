@@ -1,4 +1,4 @@
-#include "Pony.class.hpp"
+#include "Pony.hpp"
 
 Pony::Pony(int age, float weight, std::string color) : age(age), weight(weight), color(color) {
     return ;

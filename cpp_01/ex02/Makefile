@@ -1,4 +1,4 @@
-NAME = Pony
+NAME = Zombie
 
 CXX = clang++
 CPPFLAGS = -Wall -Werror -Wextra
@@ -6,7 +6,8 @@ CPPFLAGS = -Wall -Werror -Wextra
 OBJ_DIR	= obj/
 
 SRC = main.cpp \
-	  Pony.class.cpp
+	  Zombie.cpp \
+	  ZombieEvent.cpp \
 
 OBJ	= $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 

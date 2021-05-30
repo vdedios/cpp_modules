@@ -1,6 +1,6 @@
 
-#ifndef PONY_CLASS_HPP
-# define PONY_CLASS_HPP
+#ifndef PONY_HPP
+# define PONY_HPP
 
 # include <iostream>
 # include <string>
