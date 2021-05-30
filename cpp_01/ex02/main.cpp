@@ -3,21 +3,25 @@
 
 #include "ZombieEvent.hpp"
 
-std::string rand_name(void) {
-    static const std::string base[] = {"paco", "pepa", "manolo", "juana", "cuca"};
+std::string crt_rand(std::string item) {
+    static const std::string base_names[] = {"paco", "pepa", "manolo", "juana", "cuca"};
+    static const std::string base_types[] = {"good", "bad", "fighter", "fool", "dangerous"};
     struct timeval curr;
     gettimeofday(&curr, NULL);
 
     srand(curr.tv_usec);
-    return (base[rand() % sizeof(base)/sizeof(base[0])]);
+    if (item == "name") {
+        return (base_names[rand() % sizeof(base_names)/sizeof(base_names[0])]);
+    }
+    return (base_types[rand() % sizeof(base_types)/sizeof(base_types[0])]);
 }
 
 void    randomChump(void) {
     ZombieEvent event;
     Zombie      *Zombie;
 
-    event.setZombieType("dangerous");
-    Zombie = event.newZombie(rand_name());
+    event.setZombieType(crt_rand("type"));
+    Zombie = event.newZombie(crt_rand("name"));
     Zombie->announce();
     delete Zombie;
 }
