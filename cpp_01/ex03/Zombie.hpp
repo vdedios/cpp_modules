@@ -9,9 +9,11 @@ class Zombie {
     public:
         Zombie(std::string name, std::string type);
         ~Zombie(void);
-        std::string name;
-        std::string type;
         void announce(void) const;
+
+    private:
+        std::string _name;
+        std::string _type;
 };
 
 #endif
