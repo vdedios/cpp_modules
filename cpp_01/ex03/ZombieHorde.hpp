@@ -14,9 +14,9 @@ class ZombieHorde {
         void announce();
 
     private:
-        Zombie **_horde;
+        Zombie const **_horde;
         int const _nZombies;
-        std::string crt_rand(std::string item, int seed);
+        std::string crt_rand(std::string item, int seed) const;
 };
 
 #endif

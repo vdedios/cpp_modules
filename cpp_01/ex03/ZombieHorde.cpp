@@ -22,7 +22,7 @@ void ZombieHorde::announce(void) {
     }
 }
 
-std::string ZombieHorde::crt_rand(std::string item, int seed) {
+std::string ZombieHorde::crt_rand(std::string item, int seed) const{
     static const std::string base_names[] = {"paco", "pepa", "manolo", "juana", "cuca"};
     static const std::string base_types[] = {"good", "bad", "fighter", "fool", "dangerous"};
     struct timeval curr;
