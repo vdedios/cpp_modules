@@ -1,13 +1,11 @@
-NAME = ZombieHorde
+NAME = Brain
 
 CXX = clang++
 CPPFLAGS = -Wall -Werror -Wextra
 
 OBJ_DIR	= obj/
 
-SRC = main.cpp \
-	  Zombie.cpp \
-	  ZombieHorde.cpp \
+SRC = ex04.cpp
 
 OBJ	= $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 

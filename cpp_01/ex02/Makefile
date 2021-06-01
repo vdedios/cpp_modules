@@ -1,4 +1,4 @@
-NAME = Zombie
+NAME = ZombieEvent
 
 CXX = clang++
 CPPFLAGS = -Wall -Werror -Wextra
