@@ -14,7 +14,6 @@ class Fixed {
         ~Fixed(void);
 
         Fixed& operator=(Fixed const & member);
-        //<< overload inserta una representación en float del fixed point en el output stream
 
         int getRawBits( void ) const;
         void setRawBits( int const raw );
