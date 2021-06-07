@@ -36,7 +36,6 @@ Fixed& Fixed::operator=(Fixed const & member) {
 }
 
 int Fixed::getRawBits( void ) const {
-    std::cout << "getRawBits member function called" << std::endl;
     return this->_fixedPoint;
 }
 
@@ -48,23 +47,23 @@ int Fixed::_leftShiftFractionalBits(int fractionalBits) const {
     if (fractionalBits <= 1) {
         return 2;
     }
-    return Fixed::_leftShiftFractionalBits(fractionalBits--) * 2;
+    return Fixed::_leftShiftFractionalBits(fractionalBits - 1) * 2;
 }
 
 float Fixed::_rightShiftFractionalBits(int fractionalBits) const {
-    if (fractionalBits <= 1) {
+    if (fractionalBits <= 0) {
         return 1;
     }
-    return Fixed::_rightShiftFractionalBits(fractionalBits--) / 2;
+    return Fixed::_rightShiftFractionalBits(fractionalBits - 1) / 2;
 }
 
 int Fixed::toInt(void) const {
-    return this->_fixedPoint > Fixed::_FRACTIONALBITS;
+    return this->_fixedPoint >> Fixed::_FRACTIONALBITS;
 }
 
 float Fixed::toFloat(void) const {
     float integer = (float)(this->_fixedPoint >> this->_FRACTIONALBITS);
-    float decimal = this->_rightShiftFractionalBits() * (this->_fixedPoint & this->_leftShiftFractionalBits());
+    float decimal = this->_rightShiftFractionalBits() * (this->_fixedPoint & (this->_leftShiftFractionalBits() - 1));
 
     return  integer + decimal;
 }
