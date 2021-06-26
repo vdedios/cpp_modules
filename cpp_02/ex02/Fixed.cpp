@@ -1,31 +1,25 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed(void) : _fixedPoint(0) {
-    std::cout << "Default constructor called" << std::endl;
     return ;
 }
 
 Fixed::Fixed(int const N) {
-    std::cout << "Int constructor called" << std::endl;
     this->_fixedPoint = N << Fixed::_FRACTIONALBITS;
     return ;
 }
 
 Fixed::Fixed(float const N) {
-    std::cout << "Float constructor called" << std::endl;
-
     this->_fixedPoint = (int)roundf(N * this->_leftShiftFractionalBits());
     return ;
 }
 
 Fixed::Fixed(Fixed const & Fixed) {
-    std::cout << "Copy constructor called" << std::endl;
     *this = Fixed;
     return ;
 }
 
 Fixed::~Fixed(void) {
-    std::cout << "Destructor called" << std::endl;
     return ;
 }
 
@@ -63,9 +57,24 @@ float Fixed::toFloat(void) const {
 }
 
 Fixed& Fixed::operator=(Fixed const & member) {
-    std::cout << "Assignation operator called" << std::endl;
     this->_fixedPoint = member.getRawBits();
     return *this;
+}
+
+Fixed Fixed::operator+(Fixed const & fact) const{
+    return Fixed( this->toFloat() + fact.toFloat());
+}
+
+Fixed Fixed::operator-(Fixed const & fact) const{
+    return Fixed( this->toFloat() - fact.toFloat());
+}
+
+Fixed Fixed::operator*(Fixed const & fact) const{
+    return Fixed( this->toFloat() * fact.toFloat());
+}
+
+Fixed Fixed::operator/(Fixed const & fact) const{
+    return Fixed( this->toFloat() / fact.toFloat());
 }
 
 std::ostream& operator<<(std::ostream& o, Fixed const & fixedPoint) {
