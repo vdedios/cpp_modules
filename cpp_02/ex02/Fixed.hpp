@@ -14,10 +14,20 @@ class Fixed {
         ~Fixed(void);
 
         Fixed& operator=(Fixed const & member);
-        Fixed operator+(Fixed const & el) const;
+        bool operator>(Fixed const & el) const;
+        bool operator>=(Fixed const &el) const;
+        bool operator<(Fixed const & el) const;
+        bool operator<=(Fixed const &el) const;
+        bool operator==(Fixed const &el) const;
+        bool operator!=(Fixed const &el) const;
+        Fixed operator+(Fixed const &el) const;
         Fixed operator-(Fixed const & el) const;
         Fixed operator*(Fixed const & el) const;
         Fixed operator/(Fixed const & el) const;
+        Fixed& operator++();
+        Fixed& operator--();
+        Fixed operator++(int n);
+        Fixed operator--(int n);
 
         int getRawBits( void ) const;
         void setRawBits( int const raw );

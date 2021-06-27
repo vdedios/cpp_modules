@@ -50,16 +50,46 @@ int Fixed::toInt(void) const {
 }
 
 float Fixed::toFloat(void) const {
-    float integer = (float)(this->_fixedPoint >> this->_FRACTIONALBITS);
+    float integer = (float)(this->_fixedPoint >> Fixed::_FRACTIONALBITS);
     float decimal = this->_rightShiftFractionalBits() * (this->_fixedPoint & (this->_leftShiftFractionalBits() - 1));
 
     return  integer + decimal;
 }
 
+// --- Operator overload ---
+
 Fixed& Fixed::operator=(Fixed const & member) {
     this->_fixedPoint = member.getRawBits();
     return *this;
 }
+
+// Comparison
+
+bool Fixed::operator>(Fixed const & fact) const{
+    return this->toFloat() > fact.toFloat();
+}
+
+bool Fixed::operator>=(Fixed const & fact) const{
+    return this->toFloat() >= fact.toFloat();
+}
+
+bool Fixed::operator<(Fixed const & fact) const{
+    return this->toFloat() < fact.toFloat();
+}
+
+bool Fixed::operator<=(Fixed const & fact) const{
+    return this->toFloat() <= fact.toFloat();
+}
+
+bool Fixed::operator==(Fixed const & fact) const{
+    return this->toFloat() == fact.toFloat();
+}
+
+bool Fixed::operator!=(Fixed const & fact) const{
+    return this->toFloat() != fact.toFloat();
+}
+
+// Arithmetic
 
 Fixed Fixed::operator+(Fixed const & fact) const{
     return Fixed( this->toFloat() + fact.toFloat());
@@ -76,6 +106,36 @@ Fixed Fixed::operator*(Fixed const & fact) const{
 Fixed Fixed::operator/(Fixed const & fact) const{
     return Fixed( this->toFloat() / fact.toFloat());
 }
+
+// Incremental and decremental
+
+Fixed& Fixed::operator++() {
+    float inc = this->toFloat() + 1;
+    this->_fixedPoint = (int)roundf(inc * this->_leftShiftFractionalBits());
+    return (*this);
+}
+
+Fixed& Fixed::operator--() {
+    float inc = this->toFloat() - 1;
+    this->_fixedPoint = (int)roundf(inc * this->_leftShiftFractionalBits());
+    return (*this);
+}
+
+Fixed Fixed::operator++(int n) {
+    (void)n;
+    float initial = this->toFloat();
+    this->_fixedPoint = (int)roundf((initial + 1) * this->_leftShiftFractionalBits());
+    return Fixed(initial);
+}
+
+Fixed Fixed::operator--(int n) {
+    (void)n;
+    float initial = this->toFloat();
+    this->_fixedPoint = (int)roundf((initial - 1) * this->_leftShiftFractionalBits());
+    return Fixed(initial);
+}
+
+// Stream
 
 std::ostream& operator<<(std::ostream& o, Fixed const & fixedPoint) {
     o << fixedPoint.toFloat();
