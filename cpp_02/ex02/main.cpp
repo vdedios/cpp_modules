@@ -25,18 +25,15 @@ int main( void ) {
     } else if(a != b) {
         std::cout << "a and b are not equal" << std::endl;
     }
-
     std::cout << "a: " << a << std::endl;
     std::cout << "pre-increment: " << ++a << std::endl;
     std::cout << "pre-decrement: " << --a << std::endl;
-
     std::cout << "post-increment: " << a++;
     std::cout << "; a: " << a << std::endl;
     std::cout << "pre-decrement: " << a--;
     std::cout << "; a: " << a << std::endl;
-    //std::cout << a << std::endl;
-    //std::cout << b << std::endl;
-    //std::cout << Fixed::max( a, b ) << std::endl;
+    std::cout << "max(" << a << ", " << b << "): " << Fixed::max( a, b ) << std::endl;
+    std::cout << "min(" << a << ", " << b << "): " << Fixed::min( a, b ) << std::endl;
 
     return 0;
 }

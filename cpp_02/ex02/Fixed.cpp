@@ -135,6 +135,36 @@ Fixed Fixed::operator--(int n) {
     return Fixed(initial);
 }
 
+// Comparison members
+
+Fixed& Fixed::min(Fixed &el1, Fixed &el2) {
+    if (el1.toFloat() < el2.toFloat()) {
+        return  (el1);
+    }
+    return  (el2);
+}
+
+Fixed const & Fixed::min(Fixed const &el1, Fixed const &el2) {
+    if (el1.toFloat() < el2.toFloat()) {
+        return  (el1);
+    }
+    return  (el2);
+}
+
+Fixed& Fixed::max(Fixed &el1, Fixed &el2) {
+    if (el1.toFloat() > el2.toFloat()) {
+        return  (el1);
+    }
+    return  (el2);
+}
+
+Fixed const & Fixed::max(Fixed const &el1, Fixed const &el2) {
+    if (el1.toFloat() > el2.toFloat()) {
+        return  (el1);
+    }
+    return  (el2);
+}
+
 // Stream
 
 std::ostream& operator<<(std::ostream& o, Fixed const & fixedPoint) {
