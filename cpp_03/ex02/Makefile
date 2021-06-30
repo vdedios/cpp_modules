@@ -1,4 +1,4 @@
-NAME = scavTrap
+NAME = fragTrap
 
 CXX = clang++
 CPPFLAGS = -Wall -Werror -Wextra
@@ -7,6 +7,7 @@ OBJ_DIR	= obj/
 
 SRC = main.cpp \
 	  ClapTrap.cpp \
+	  FragTrap.cpp \
 	  ScavTrap.cpp
 
 OBJ	= $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))

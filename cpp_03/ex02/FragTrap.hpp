@@ -11,7 +11,7 @@ class FragTrap: public ClapTrap {
         FragTrap(std::string const Name);
         FragTrap(FragTrap const & FragTrap);
         ~FragTrap(void);
-        void guardGate(void);
+        void highFiveGuys(void);
 };
 
 #endif

@@ -5,7 +5,7 @@ FragTrap::FragTrap(void) {
     return ;
 }
 
-FragTrap::FragTrap(std::string name): ClapTrap(name, 100, 50, 20) {
+FragTrap::FragTrap(std::string name): ClapTrap(name, 100, 100, 30) {
     std::cout << "FragTrap name constructor called" << std::endl;
     return ;
 }
@@ -21,7 +21,7 @@ FragTrap::~FragTrap(void) {
     return ;
 }
 
-void FragTrap::guardGate(void) {
-    std::cout << this->_name << " has entered in Gate keeper mode" << std::endl;
+void FragTrap::highFiveGuys(void) {
+    std::cout << this->_name << " says: \"High Five!\" " << std::endl;
     return ;
 }
