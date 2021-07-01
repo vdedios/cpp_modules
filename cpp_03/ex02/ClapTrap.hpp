@@ -11,16 +11,15 @@ class ClapTrap {
         ClapTrap(std::string const name, int hitPoints, int energyPoints, int attackDamage);
         ClapTrap(ClapTrap const & ClapTrap);
         ~ClapTrap(void);
+        ClapTrap & operator=(ClapTrap const & ref);
         void attack(std::string const & target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 
-    private:
+    protected:
         unsigned int    _hitPoints;
         unsigned int    _energyPoints;
         unsigned int    _attackDamage;
-
-    protected:
         std::string     _name;
 };
 

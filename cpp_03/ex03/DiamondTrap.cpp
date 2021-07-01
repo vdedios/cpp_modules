@@ -28,3 +28,11 @@ void DiamondTrap::whoAmI(void) {
     std::cout << "My name is " << this->_name << std::endl;
     std::cout << "ClapTrap name is " << this->ClapTrap::_name << std::endl;
 }
+
+DiamondTrap & DiamondTrap::operator=(DiamondTrap const & ref) {
+    this->_name = ref._name;
+    this->_hitPoints = ref._hitPoints;
+    this->_energyPoints = ref._energyPoints;
+    this->_attackDamage = ref._attackDamage;
+    return *this;
+}

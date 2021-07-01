@@ -25,3 +25,11 @@ void FragTrap::highFiveGuys(void) {
     std::cout << this->_name << " says: \"High Five!\" " << std::endl;
     return ;
 }
+
+FragTrap & FragTrap::operator=(FragTrap const & ref) {
+    this->_name = ref._name;
+    this->_hitPoints = ref._hitPoints;
+    this->_energyPoints = ref._energyPoints;
+    this->_attackDamage = ref._attackDamage;
+    return *this;
+}

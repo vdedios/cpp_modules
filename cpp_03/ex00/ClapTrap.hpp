@@ -10,6 +10,7 @@ class ClapTrap {
         ClapTrap(std::string const Name);
         ClapTrap(ClapTrap const & ClapTrap);
         ~ClapTrap(void);
+        ClapTrap & operator=(ClapTrap const & ref);
         void attack(std::string const & target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);

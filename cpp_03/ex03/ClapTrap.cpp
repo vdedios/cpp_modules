@@ -77,3 +77,11 @@ void ClapTrap::getAttackDamage(void) {
     std::cout << "Attack damage: " << this->_attackDamage << std::endl;
     return ;
 }
+
+ClapTrap & ClapTrap::operator=(ClapTrap const & ref) {
+    this->_name = ref._name;
+    this->_hitPoints = ref._hitPoints;
+    this->_energyPoints = ref._energyPoints;
+    this->_attackDamage = ref._attackDamage;
+    return *this;
+}

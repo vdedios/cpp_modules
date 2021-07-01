@@ -64,3 +64,11 @@ void ClapTrap::beRepaired(unsigned int amount) {
     std::cout << " points of damage! " << std::endl;
     return ;
 }
+
+ClapTrap & ClapTrap::operator=(ClapTrap const & ref) {
+    this->_name = ref._name;
+    this->_hitPoints = ref._hitPoints;
+    this->_energyPoints = ref._energyPoints;
+    this->_attackDamage = ref._attackDamage;
+    return *this;
+}
