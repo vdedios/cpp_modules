@@ -1,5 +1,5 @@
-#ifndef ENEMY_CPP
-# define ENEMY_CPP
+#ifndef ENEMY_HPP
+# define ENEMY_HPP
 
 # include <iostream>
 

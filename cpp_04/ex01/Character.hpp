@@ -1,5 +1,5 @@
-#ifndef RADSCORPION_CPP
-# define RADSCORPION_CPP
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
 # include <iostream>
 # include "Enemy.hpp"

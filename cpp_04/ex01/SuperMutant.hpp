@@ -1,5 +1,5 @@
-#ifndef SUPERMUTANT_CPP
-# define SUPERMUTANT_CPP
+#ifndef SUPERMUTANT_HPP
+# define SUPERMUTANT_HPP
 
 # include <iostream>
 # include "Enemy.hpp"
