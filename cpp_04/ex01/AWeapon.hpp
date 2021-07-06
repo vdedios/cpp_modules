@@ -6,7 +6,7 @@
 class AWeapon {
     public:
         AWeapon (void);
-        AWeapon(std::string const & name, int apcost, int damage);
+        AWeapon(std::string const & name, int damage, int apcost);
         AWeapon (AWeapon & aweapon);
         ~AWeapon(void);
         AWeapon & operator=(AWeapon & src);

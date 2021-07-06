@@ -3,7 +3,7 @@
 AWeapon::AWeapon(void): _name(""), _damage(0), _apcost(0) {
 }
 
-AWeapon::AWeapon(std::string const & name, int apcost, int damage): _name(name), _damage(damage), _apcost(apcost) {
+AWeapon::AWeapon(std::string const & name, int damage, int apcost): _name(name), _damage(damage), _apcost(apcost) {
 }
 
 AWeapon::AWeapon(AWeapon & aweapon) {
