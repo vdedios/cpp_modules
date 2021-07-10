@@ -11,6 +11,11 @@ MateriaSource::MateriaSource(MateriaSource const & materiaSource) {
 MateriaSource::~MateriaSource(void) {
 }
 
+MateriaSource const & MateriaSource::operator=(MateriaSource const & materiaSource) {
+    this->_materiaCount = materiaSource._materiaCount;
+    return *this;
+}
+
 void MateriaSource::learnMateria(AMateria* m) {
     if (m && this->_materiaCount < MAX_MATERIA) {
         this->_materia[this->_materiaCount] = m;
