@@ -8,6 +8,8 @@ Squad::Squad(ISpaceMarine ** spaceMarine, int squadUnits): _spaceMarine(spaceMar
 
 Squad::Squad(Squad const & squad) {
     *this = squad;
+    //deep copy
+    this->_deleteUnits();
 }
 
 Squad::~Squad(void) {
@@ -60,12 +62,10 @@ int Squad::push(ISpaceMarine* spaceMarine) {
 }
 
 void Squad::_deleteUnits(void) {
-    int i = 0;
-
     if (this->_squadUnits > 0) {
-        while (i < this->_squadUnits) {
-            delete this->_spaceMarine[i];
-            i++;
+        while (this->_squadUnits > 0) {
+            delete this->_spaceMarine[this->_squadUnits - 1];
+            this->_squadUnits--;
         }
     }
 }
