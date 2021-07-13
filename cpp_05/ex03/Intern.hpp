@@ -26,7 +26,7 @@ class Intern {
 
         typedef struct  s_form {
             std::string formName;
-            Form       *(*c)(std::string);
+            Form       *(*construct)(std::string);
         }               t_form;
 
     private:

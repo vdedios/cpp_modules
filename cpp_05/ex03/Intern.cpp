@@ -19,7 +19,7 @@ Form * Intern::makeForm(std::string formName, std::string target) {
     for (int i = 0; i < KNOWN_FORMS; i++) {
         if (this->_knownForms[i].formName == formName ) {
             std::cout << "Intern creates " << formName << "." << std::endl;
-            return this->_knownForms[i].c(target);
+            return this->_knownForms[i].construct(target);
         }
     }
     throw Intern::UnknownForm();
