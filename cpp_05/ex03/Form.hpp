@@ -59,4 +59,5 @@ std::ostream& operator<<(std::ostream& o, Form::GradeTooHighException const & e)
 std::ostream& operator<<(std::ostream& o, Form::GradeTooLowException const & e);
 std::ostream& operator<<(std::ostream& o, Form::NotSigned const & e);
 
+
 #endif

@@ -5,6 +5,7 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 void cleanForm(Form **form) {
     if (*form) {
@@ -21,35 +22,32 @@ void cleanBureaucrat(Bureaucrat **bureaucrat) {
 }
 
 int main( void ) {
-    Form *shrubbery = new ShrubberyCreationForm("peon");
-    Form *robotomy = new RobotomyRequestForm("vice-president");
-    Form *presidential = new PresidentialPardonForm("president");
+    Intern someRandomIntern;
+    Form* form = someRandomIntern.makeForm("robotomy request", "Bender");
     Bureaucrat *admin = new Bureaucrat("admin", 10);
 
     try {
-        admin->signForm(*shrubbery);
-        admin->signForm(*robotomy);
-        admin->signForm(*presidential);
-        admin->executeForm(*shrubbery);
-        admin->executeForm(*robotomy);
-        admin->executeForm(*presidential);
+        admin->signForm(*form);
+        admin->executeForm(*form);
+
+        delete form;
+        form = NULL;
+        form = someRandomIntern.makeForm("robotom request", "Bender");
     } catch (Form::GradeTooHighException & e) {
         std::cout << e << std::endl;
-        cleanForm(&shrubbery);
-        cleanForm(&robotomy);
-        cleanForm(&presidential);
+        cleanForm(&form);
         cleanBureaucrat(&admin);
     } catch (Form::GradeTooLowException & e) {
         std::cout << e << std::endl;
-        cleanForm(&shrubbery);
-        cleanForm(&robotomy);
-        cleanForm(&presidential);
+        cleanForm(&form);
         cleanBureaucrat(&admin);
-    } catch (Form::NotSigned & e) {
+    }  catch (Form::NotSigned & e) {
         std::cout << e << std::endl;
-        cleanForm(&shrubbery);
-        cleanForm(&robotomy);
-        cleanForm(&presidential);
+        cleanForm(&form);
+        cleanBureaucrat(&admin);
+    } catch (Intern::UnknownForm & e) {
+        std::cout << e << std::endl;
+        cleanForm(&form);
         cleanBureaucrat(&admin);
     }
     return 0;
