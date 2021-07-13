@@ -69,6 +69,10 @@ const char * Form::GradeTooLowException::what(void) const throw() {
     return ("grade too low");
 }
 
+const char * Form::NotSigned::what(void) const throw() {
+    return ("form not signed");
+}
+
 // Stream
 
 std::ostream& operator<<(std::ostream& o, Form const & form) {
