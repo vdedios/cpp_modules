@@ -31,7 +31,10 @@ void RobotomyRequestForm::execute(Bureaucrat const & bureaucrat) const {
         if (bureaucrat.getGrade() > this->getRequiredGradeToExec()) {
             throw Form::GradeTooLowException();
         } else {
-            std::cout << "TRRRRTRRRRR" << this->_target << " has been robotomized successfully 50% of the time." << std::endl;
+            std::time_t t = std::time(0);
+            (t % 2) 
+            ? std::cout << "TRRRRTRRRRR" << this->_target << " has been robotomized successfully." << std::endl
+            : std::cout << "TRRRRTRRRRR" << this->_target << " failed to be robotomized." << std::endl;
         }
     } else {
         throw Form::NotSigned();

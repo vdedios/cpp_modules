@@ -4,6 +4,7 @@
 # include <iostream>
 # include <fstream>
 # include <string>
+# include <ctime>
 
 # include "Bureaucrat.hpp"
 # include "Form.hpp"
