@@ -1,4 +1,4 @@
-NAME = scalar
+NAME = convert
 
 CXX = clang++
 CPPFLAGS = -Wall -Wextra -Werror
