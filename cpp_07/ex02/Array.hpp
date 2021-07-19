@@ -8,14 +8,34 @@ class Array {
 	public:
 		Array<T>(void): _arr(new T[0]), _len(0) {}
 		Array<T>(unsigned int n): _arr(new T[n]), _len(n) {}
-		Array<T>(Array<T> const & array) {
+		Array<T>(Array<T> & array) {
             this->_arr = new T[array.size()];
             this->_len = array.size();
             for (int i = 0; i < array.size(); i++) {
                 this->_arr[i] = array[i];
             }
         }
-		~Array<T>(void){}
+		~Array<T>(void) {
+            delete[] this->_arr;
+        }
+
+        T & operator[](int const & index) {
+            if (index < 0 || index >= this->_len) {
+                throw OutOfBoundsException();
+            }
+            return (this->_arr[index]);
+        }
+
+        Array<T> & operator=(Array<T> & array) {
+            delete this->_arr;
+            this->_arr = new T[array.size()];
+            this->_len = array.size();
+            for (int i = 0; i < array.size(); i++) {
+                this->_arr[i] = array[i];
+            }
+        }
+
+        int size(void) const { return this->_len; }
 
         class OutOfBoundsException: public std::exception {
             public:
@@ -24,14 +44,6 @@ class Array {
                 }
         };
 
-        T & operator[](int const & index) {
-            if (index > this->_len) {
-                throw OutOfBoundsException();
-            }
-            return (this->_arr[index]);
-        }
-
-        int size(void) const { return this->_len; }
 
 	private:
 		T *     _arr;
