@@ -16,6 +16,11 @@ std::ostream & operator<<(std::ostream &o, Test const & t) {
     return o;
 }
 
+template< typename T>
+void getValue(T const & val) {
+    std::cout << val << std::endl;
+}
+
 int main(void) {
     std::string arr[] = {"test1", "test2", "test3", "test4"};
     iter<std::string, void>(arr, 4, getValue<std::string>);
