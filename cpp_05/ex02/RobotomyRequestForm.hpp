@@ -11,7 +11,6 @@
 
 class RobotomyRequestForm: public Form {
     public:
-        RobotomyRequestForm(void);
         RobotomyRequestForm(std::string target);
         RobotomyRequestForm(RobotomyRequestForm const &);
         ~RobotomyRequestForm(void);
@@ -20,6 +19,7 @@ class RobotomyRequestForm: public Form {
         std::string  getTarget(void) const;
     
     private:
+        RobotomyRequestForm(void);
         std::string _target;
 };
 

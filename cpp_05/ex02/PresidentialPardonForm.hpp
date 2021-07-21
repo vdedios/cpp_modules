@@ -10,7 +10,6 @@
 
 class PresidentialPardonForm: public Form {
     public:
-        PresidentialPardonForm(void);
         PresidentialPardonForm(std::string target);
         PresidentialPardonForm(PresidentialPardonForm const &);
         ~PresidentialPardonForm(void);
@@ -19,6 +18,7 @@ class PresidentialPardonForm: public Form {
         std::string  getTarget(void) const;
     
     private:
+        PresidentialPardonForm(void);
         std::string _target;
 };
 

@@ -10,7 +10,6 @@
 
 class ShrubberyCreationForm: public Form {
     public:
-        ShrubberyCreationForm(void);
         ShrubberyCreationForm(std::string target);
         ShrubberyCreationForm(ShrubberyCreationForm const &);
         ~ShrubberyCreationForm(void);
@@ -19,6 +18,7 @@ class ShrubberyCreationForm: public Form {
         std::string  getTarget(void) const;
     
     private:
+        ShrubberyCreationForm(void);
         std::string _target;
 };
 
