@@ -7,9 +7,11 @@ Squad::Squad(ISpaceMarine ** spaceMarine, int squadUnits): _spaceMarine(spaceMar
 }
 
 Squad::Squad(Squad const & squad) {
-    *this = squad;
-    //deep copy
-    this->_deleteUnits();
+    this->_squadUnits = squad._squadUnits;
+    this->_spaceMarine = new ISpaceMarine*[this->_squadUnits + 1];
+    for (int i = 0; i < squad._squadUnits; i++) {
+        this->_spaceMarine[i] = squad._spaceMarine[i];
+    }
 }
 
 Squad::~Squad(void) {
@@ -19,10 +21,16 @@ Squad::~Squad(void) {
     }
 }
 
-Squad & Squad::operator=(Squad const & rhs) {
+Squad & Squad::operator=(Squad const & squad) {
     this->_deleteUnits();
-    this->_spaceMarine = rhs._spaceMarine;
-    this->_squadUnits = rhs._squadUnits;
+    this->_squadUnits = squad._squadUnits;
+    if (this->_spaceMarine != NULL) {
+        delete this->_spaceMarine;
+    }
+    this->_spaceMarine = new ISpaceMarine*[squad._squadUnits + 1];
+    for (int i = 0; i < squad._squadUnits; i++) {
+        this->_spaceMarine[i] = squad._spaceMarine[i];
+    }
     return *this;
 }
 
@@ -62,10 +70,8 @@ int Squad::push(ISpaceMarine* spaceMarine) {
 }
 
 void Squad::_deleteUnits(void) {
-    if (this->_squadUnits > 0) {
-        while (this->_squadUnits > 0) {
-            delete this->_spaceMarine[this->_squadUnits - 1];
-            this->_squadUnits--;
-        }
+    for (int i = 0; i < this->_squadUnits; i++) {
+        delete this->_spaceMarine[i];
     }
+    this->_squadUnits = 0;
 }

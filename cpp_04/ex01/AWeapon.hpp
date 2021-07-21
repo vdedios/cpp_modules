@@ -8,7 +8,7 @@ class AWeapon {
         AWeapon (void);
         AWeapon(std::string const & name, int damage, int apcost);
         AWeapon (AWeapon & aweapon);
-        ~AWeapon(void);
+        virtual ~AWeapon(void);
         AWeapon & operator=(AWeapon & src);
 
         std::string getName() const;

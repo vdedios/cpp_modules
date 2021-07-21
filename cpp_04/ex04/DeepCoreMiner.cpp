@@ -3,6 +3,10 @@
 DeepCoreMiner::DeepCoreMiner(void) {
 }
 
+DeepCoreMiner::DeepCoreMiner(DeepCoreMiner const & deepCoreMiner) {
+    *this = deepCoreMiner;
+}
+
 DeepCoreMiner::~DeepCoreMiner() {
 }
 

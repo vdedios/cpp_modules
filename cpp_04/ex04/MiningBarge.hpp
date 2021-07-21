@@ -12,6 +12,7 @@
 class MiningBarge {
     public:
         MiningBarge(void);
+        MiningBarge(MiningBarge const &);
         ~MiningBarge(void);
         MiningBarge const & operator = (MiningBarge const &);
 

@@ -7,15 +7,20 @@ Character::Character(std::string name): _name(name), _materiaCount(0) {
 }
 
 Character::Character(Character const & character) {
-    *this = character;
-    this->_deleteAllMateria();
+    this->_name = character._name;
+    this->_materiaCount = 0;
 }
 
 Character::~Character(void) {
 }
 
 Character const & Character::operator=(Character const & character) {
+    this->_deleteAllMateria();
     this->_name = character._name;
+    this->_materiaCount = character._materiaCount;
+    for (int i = 0; i < character._materiaCount; i++) {
+        this->_materia[i] = character._materia[i];
+    }
     return *this;
 }
 

@@ -8,7 +8,7 @@ class Victim {
         Victim (void);
         Victim (std::string name);
         Victim (Victim & victim);
-        ~Victim(void);
+        virtual ~Victim(void);
         Victim & operator=(Victim & src);
         std::string getName(void) const;
         virtual void getPolymorphed() const;

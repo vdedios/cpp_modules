@@ -3,7 +3,11 @@
 StripMiner::StripMiner(void) {
 }
 
-StripMiner::~StripMiner() {
+StripMiner::StripMiner(StripMiner const & stripMiner) {
+    *this = stripMiner;
+}
+
+StripMiner::~StripMiner(void) {
 }
 
 StripMiner const & StripMiner::operator=(StripMiner const & rhs) {

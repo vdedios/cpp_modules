@@ -9,6 +9,7 @@ class IAsteroid;
 class StripMiner: public IMiningLaser{
     public:
         StripMiner(void);
+        StripMiner(StripMiner const &);
         ~StripMiner();
         StripMiner const & operator=(StripMiner const &);
         void mine(IAsteroid*);
