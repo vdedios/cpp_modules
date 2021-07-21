@@ -7,8 +7,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade) 
     this->_handleGradeException(this->_grade);
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const & bureaucrat) {
-    *this = bureaucrat;
+Bureaucrat::Bureaucrat(Bureaucrat const & bureaucrat): _name(bureaucrat.getName()), _grade(bureaucrat.getGrade()) {
 }
 
 Bureaucrat::~Bureaucrat(void) {
