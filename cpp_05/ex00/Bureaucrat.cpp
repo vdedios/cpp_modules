@@ -13,6 +13,11 @@ Bureaucrat::Bureaucrat(Bureaucrat const & bureaucrat): _name(bureaucrat.getName(
 Bureaucrat::~Bureaucrat(void) {
 }
 
+Bureaucrat & Bureaucrat::operator=(Bureaucrat const & bureaucrat) {
+    this->_grade = bureaucrat.getGrade();
+    return (*this);
+}
+
 std::string Bureaucrat::getName(void) const{
     return this->_name;
 }

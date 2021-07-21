@@ -42,8 +42,8 @@ class Bureaucrat {
         };
 
     private:
-        std::string _name;
-        int         _grade;
+        std::string const   _name;
+        int                 _grade;
 
         void _handleGradeException(int grade);
 };

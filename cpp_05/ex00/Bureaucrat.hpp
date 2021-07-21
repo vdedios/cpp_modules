@@ -19,6 +19,7 @@ class Bureaucrat {
         Bureaucrat(std::string name, int grade);
         Bureaucrat(Bureaucrat const &);
         ~Bureaucrat(void);
+        Bureaucrat & operator=(Bureaucrat const &);
         std::string getName(void) const;
         int getGrade(void)  const;
         void incGrade(void);
